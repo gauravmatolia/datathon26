@@ -582,15 +582,17 @@ def run_simulation(config=CONFIG):
     return metrics, traders
 
 def margin_policy_experiment():
-    margin_levels = [0.02, 0.05, 0.1, 0.15, 0.2]
+    margin_levels = [0.05, 0.10, 0.15, 0.20, 0.30]
     results = []
+    
+    print("\n--- Margin Policy Experiment Results ---")
 
     for m in margin_levels:
-        print(f"Testing margin = {m}")
+        # print(f"Testing margin = {m}") # Reduced verbosity
         CONFIG["base_margin_rate"] = m
         avg_risk = run_monte_carlo()
         results.append(avg_risk)
-        print(f"Average systemic risk = {avg_risk:.3f}")
+        print(f"Margin Rate: {m:.0%} -> Systemic Risk Index: {avg_risk:.4f}")
 
     plt.figure()
     plt.plot(margin_levels, results, marker='o')
