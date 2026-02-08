@@ -1,0 +1,16 @@
+# Core ML/DL
+torch>=2.0.0
+torch-geometric>=2.4.0
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Graph/Network
+networkx>=3.0
+
+# Data Sources
+yfinance>=0.2.30
+
+# Notebooks
+jupyter>=1.0.0
